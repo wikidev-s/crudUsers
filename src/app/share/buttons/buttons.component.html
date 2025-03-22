@@ -1,1 +1,8 @@
-<p>buttons works!</p>
+@if (volver) {
+    <button class="btn border-secondary me-1">Volver</button>
+} @else {
+    <button class="btn border-secondary me-1" [routerLink]="['/user', myUser._id]">Ver</button>
+}
+<button class="btn border-secondary me-1" [routerLink]="['/updateuser', myUser._id]">Actualizar</button>
+<button class="btn border-secondary" (click)="deleteUser(myUser._id)">Borrar</button>
+

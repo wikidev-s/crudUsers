@@ -1,1 +1,12 @@
-<p>user-card works!</p>
+<div class="card border border-3 border-dark mb-4">
+    <figure class="mx-auto">
+        <img class="imagesUser mx-auto" [src]="miUser.image" [alt]="miUser.first_name">
+    </figure>
+    <div class="d-flex justify-content-center align-items-center cardsUser p-3 text-center">
+        <p>{{miUser.first_name}} {{miUser.last_name}}</p>
+    </div>
+    <div class="pb-3 text-center">
+        <app-buttons [myUser]="miUser" [volver]="false"></app-buttons>
+    </div>
+</div>
+

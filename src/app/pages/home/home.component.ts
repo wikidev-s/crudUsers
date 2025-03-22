@@ -14,6 +14,11 @@ export class HomeComponent {
 
   arrUsers:IUser[] = [];
   usersService = inject(UsersService);
+  page:number = 0; 
+  totalPages: number = 0;
+  linkPrev: string = "";
+  linkNext: string = "";
+  baseUrl: string = "https://peticiones.online/api/users";
 
   ngOnInit(){
     this.cargaUsers();
@@ -23,9 +28,25 @@ export class HomeComponent {
     try {
       let response: IResponse = await this.usersService.getAll(url);
       this.arrUsers = response.results
-      console.log('this.arrUsers', this.arrUsers)
+      this.page = Number(response.page);
+      this.totalPages = Number(response.total_pages);
+      if (this.page < this.totalPages ) {
+        this.linkNext = `${this.baseUrl}?page=${this.page+1}`
+      }
+      if (this.page > 1 ) {
+        this.linkPrev = `${this.baseUrl}?page=${this.page-1}`
+      }
+      console.log('this.linNext', this.linkNext)
     } catch(error){
       console.log(error)
     }
+  }
+
+  async gotoNext(){
+    this.cargaUsers(this.linkNext)
+  }
+
+  async gotoPrev(){
+    this.cargaUsers(this.linkPrev)
   }
 }
