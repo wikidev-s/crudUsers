@@ -1,5 +1,5 @@
 @if (volver) {
-    <button class="btn border-secondary me-1">Volver</button>
+    <button class="btn border-secondary me-1" [routerLink]="['/home']">Volver</button>
 } @else {
     <button class="btn border-secondary me-1" [routerLink]="['/user', myUser._id]">Ver</button>
 }

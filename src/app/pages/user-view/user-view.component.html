@@ -1,1 +1,28 @@
-<p>user-view works!</p>
+<section class="container py-4">
+    <div class="row align-items-center">
+      <div class="col-md-5 text-center text-md-end">
+        <figure>
+          <img
+            class="img-fluid imagesUser rounded-circle"
+            [src]="elUser.image"
+            [alt]="elUser.username"
+          />
+        </figure>
+      </div>
+      <div class="col-md-1 d-none d-md-flex justify-content-center">
+        <div style="width: 1px; min-height: 300px; background-color: #a7acaf;"></div>
+      </div>
+      <div class="col-md-6 text-center text-md-start">
+        <h1>{{ elUser.first_name }}</h1>
+        <h1 class="pb-3">{{ elUser.last_name }}</h1>
+        <p>
+          <span class="fw-bold">Nombre de Usuario:</span> {{ elUser.username }}
+        </p>
+        <p class="pb-3">
+          <span class="fw-bold">Email:</span> {{ elUser.email }}
+        </p>
+        <app-buttons [myUser]="elUser" [volver]="true"></app-buttons>
+      </div>
+    </div>
+  </section>
+
