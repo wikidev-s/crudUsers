@@ -80,7 +80,9 @@ export class UserFormComponent {
         this.router.navigate(['/home'])
         toast.success(`Usuario ${this.user.username} actualizado correctamente`)
       } else {
-        
+        response = await this.usersService.insert(this.userForm.value)
+        this.router.navigate(['/home'])
+        toast.success(`Usuario ${this.user.username} creado correctamente`)
       }
     } catch{
 

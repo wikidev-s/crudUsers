@@ -29,4 +29,8 @@ export class UsersService {
     return lastValueFrom(this.httpClient.put<IUser>(`${this.baseUrl}/${user._id}`, user))
   }
 
+  insert(user: IUser){
+    return lastValueFrom(this.httpClient.post<IUser>(this.baseUrl, user))
+  }
+
 }
